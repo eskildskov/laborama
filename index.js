@@ -3,8 +3,8 @@
 function cleanLabResults(messyLabResultsString) {
   const removePatterns = [/\[[^\]]+\]/g, "B-Differensialtelling Utført", "X-Ekstrarør Mottatt", /, antall/g]
 
-  removePatterns.forEach(p => {
-    messyLabResultsString = messyLabResultsString.replace(p, '')
+  removePatterns.forEach(pattern => {
+    messyLabResultsString = messyLabResultsString.replace(pattern, '')
   })
 
   messyLabResultsString = messyLabResultsString.replace('GFR, estimert', 'eGFR')
@@ -12,16 +12,25 @@ function cleanLabResults(messyLabResultsString) {
   let labResultsArr = messyLabResultsString.split(";")
   labResultsArr = labResultsArr.map(s => s.trim()).filter(item => item)
 
-  const parser = /([^-])-(.+)\s(\d+,*\d*)\s*([HL])*/i
+  const parser = /([^-]+)-(.+)\s(.+)\s*/i
 
   let labResults = labResultsArr.map( s => {
-    let match = s.match(parser) || []
-    return {
-      fluid: match[1],
-      analysis: match[2].trim(),
-      value: match[3],
-      deviation: match[4]
+    const resultObj  = {}
+
+    const lastChar = s.slice(-1)
+    if (lastChar == 'L' || lastChar == 'H') {
+      resultObj.deviation = lastChar
+      s = s.slice(0, -1).trim()
     }
+
+
+
+    let match = s.match(parser) || []
+    resultObj.fluid = match[1]
+    resultObj.analysis = match[2].trim()
+    resultObj.value = match[3]
+
+    return resultObj
   })
 
   let cleanResult = ''
