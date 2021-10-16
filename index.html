@@ -13,12 +13,14 @@
   <body>
     <div class="container">
       <h1>Laborama</h1>
-      <p>En litt bedre verden med litt penere prøvesvar.</p>
       <div id="app">
-        <textarea placeholder="Lim inn prøvesvar fra labRos og la deg imponere" style="font-size: 0.8rem; width:100%; height:200px" v-model="labInput"></textarea>
+        <textarea placeholder="Lim inn prøvesvar fra Lab RoS og blir imponert" style="font-size: 0.8rem; width:100%; height:200px" v-model="labInput"></textarea>
 
-
-        <div v-if="labOutput" id="result" style="background-color: aquamarine; margin-top: 10px;">
+        <div v-if="labOutput" id="result" style="
+          margin-top: 10px;
+          font-family: initial;
+          line-height: initial;
+        ">
           <span v-for="r in labOutput">
             {{ r.analysis }} {{ r.value }}.
           </span>
