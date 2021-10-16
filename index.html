@@ -22,7 +22,10 @@
           line-height: initial;
         ">
           <span v-for="r in labOutput">
-            {{ r.analysis }} {{ r.value }}.
+            {{ r.analysis }} 
+            <span v-for="(v,index) in r.values"> 
+              {{ v[0] }}<span v-if="index != r.values.length - 1"> -</span>
+            </span>.
           </span>
         </div>
       </div>
