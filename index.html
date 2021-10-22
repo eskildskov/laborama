@@ -14,7 +14,10 @@
     <div class="container">
       <h1>Laborama</h1>
       <div id="app">
-        <textarea placeholder="Lim inn prøvesvar fra Lab RoS for å imponere en kollega med dine lekre journalnotater" style="font-size: 0.8rem; width:100%; height:200px" v-model="labInput"></textarea>
+        <textarea 
+          placeholder="Lim inn prøvesvar fra Lab RoS for å imponere en kollega med dine lekre journalnotater" style="font-size: 0.8rem; width:100%; height:200px"
+          v-model="labInput">
+        </textarea>
 
         <div v-if="labOutput" id="result" style="
           margin-top: 10px;
@@ -30,7 +33,6 @@
         </div>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
-    <script src="index.js"></script>
+    <script type="module" src="./index.js"></script>
   </body>
 </html>
