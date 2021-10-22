@@ -21,19 +21,20 @@
           placeholder="Lim inn prøvesvar fra Lab RoS" style="font-size: 0.8rem; width:100%; height:200px"
           v-model="labInput">
         </textarea>
-
-        <div v-if="labOutput" id="result" style="
-          margin-top: 10px;
-          font-family: initial;
-          line-height: initial;
-        ">
-          <span v-for="r in labOutput">
-            {{ r.analysis }} 
-            <span v-for="(v,index) in r.values"> 
-              {{ v[0] }}<span v-if="index != r.values.length - 1"> -</span>
-            </span>.
-          </span>
-        </div>
+        <template>
+          <div v-if="labOutput" id="result" style="
+            margin-top: 10px;
+            font-family: initial;
+            line-height: initial;
+          ">
+            <span v-for="r in labOutput">
+              {{ r.analysis }} 
+              <span v-for="(v,index) in r.values"> 
+                {{ v[0] }}<span v-if="index != r.values.length - 1"> -</span>
+              </span>.
+            </span>
+          </div>
+       </template>  
       </div>
     </div>
     <script type="module" src="./index.js"></script>
