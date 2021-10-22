@@ -6,9 +6,9 @@
   "type": "module",
   "scripts": {
     "test": "mocha tests/*.js --exit",
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview"
+    "dev": "npx vite",
+    "build": "npx vite build",
+    "serve": "npx vite preview"
   },
   "keywords": [],
   "author": "",
