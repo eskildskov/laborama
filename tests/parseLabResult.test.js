@@ -1,5 +1,5 @@
 import {should} from 'chai'
-import {parseLabResult} from '../index.js'
+import {parseLabResult} from '../cleanLabResults.js'
 
 should()
 
